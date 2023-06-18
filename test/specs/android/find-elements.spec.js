@@ -53,4 +53,31 @@ describe('Find elements on Android app', ()=>{
         // Assertion on final text using UIAutomator
         await expect(await $('android=new UiSelector().text("You selected: 1 , Command two")')).toBeExisting()
     })
+
+    it('should be able to find and handle multiple elements', async ()=>{
+        // Capture the expected list from the UI
+        const expectedList = [
+            'API Demos', "Access'ibility",
+            'Accessibility', 'Animation',
+            'App', 'Content',
+            'Graphics', 'Media',
+            'NFC', 'OS',
+            'Preference', 'Text',
+            'Views'
+        ]
+
+        // Create an empty array list to capture the results from the UI
+        const actualList = []
+
+        // Find multiple elements
+        const list = await $$("android.widget.TextView")
+
+        // Loop through the elements in the above list to capture the text and populate empty array with text results
+        for (const text of list){
+            actualList.push(await text.getText())
+        }
+
+        // Assert and Compare the two lists
+        await expect(actualList).toEqual(expectedList)
+    })
 })
