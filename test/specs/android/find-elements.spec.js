@@ -1,6 +1,6 @@
 describe('Find elements on Android app', ()=>{
 
-    it('should be able to find elements using Accessibility ID', async ()=>{
+    it ('should be able to find elements using Accessibility ID', async ()=>{
         // Find the element on UI
         const app = await $('~App')
 
@@ -12,7 +12,7 @@ describe('Find elements on Android app', ()=>{
         await expect(actionBar).toBeExisting()
     })
 
-    it('should be able to find elements using Class', async()=>{
+    it ('should be able to find elements using Class', async()=>{
         // Find element
         const clsElement = await $('android.widget.TextView')
 
@@ -20,7 +20,7 @@ describe('Find elements on Android app', ()=>{
         await expect(clsElement).toHaveText('API Demos')
     })
 
-    it('should be able to find elements using XPath', async()=>{
+    it ('should be able to find elements using XPath', async()=>{
         //Navigate to Alert Dialogs
         await $('~App').click()
 
@@ -37,7 +37,7 @@ describe('Find elements on Android app', ()=>{
         await expect(await $('//*[@resource-id="android:id/message"]')).toHaveText('You selected: 0 , Command one')
     })
 
-    it('should be able to find elements using UIAutomator functions', async()=>{
+    it ('should be able to find elements using UIAutomator functions', async()=>{
         // Navigate to Alert Dialog
         await $('~App').click()
 
@@ -54,7 +54,7 @@ describe('Find elements on Android app', ()=>{
         await expect(await $('android=new UiSelector().text("You selected: 1 , Command two")')).toBeExisting()
     })
 
-    it('should be able to find and handle multiple elements', async ()=>{
+    it ('should be able to find and handle multiple elements', async ()=>{
         // Capture the expected list from the UI
         const expectedList = [
             'API Demos', "Access'ibility",
@@ -79,5 +79,22 @@ describe('Find elements on Android app', ()=>{
 
         // Assert and Compare the two lists
         await expect(actualList).toEqual(expectedList)
+    })
+
+    it ('should be able to work with text fields', async ()=>{
+        // Click on Views
+        await $("~Views").click()
+
+        // Click on Auto Complete
+        await $('~Auto Complete').click()
+
+        // Click on Screen Top
+        await $('//android.widget.TextView[@resource-id="android:id/text1"]').click()
+
+        // Type in the text field
+        await $('//android.widget.EditText[@resource-id="io.appium.android.apis:id/edit"]').addValue("New Zealand")
+
+        // Assert the text in the text field
+        await expect(await $('android=new UiSelector().resourceId("io.appium.android.apis:id/edit")')).toHaveText("New Zealand")
     })
 })
