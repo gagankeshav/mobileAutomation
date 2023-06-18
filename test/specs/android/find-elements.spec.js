@@ -20,7 +20,7 @@ describe('Find elements on Android app', ()=>{
         await expect(clsElement).toHaveText('API Demos')
     })
 
-    it.only('should be able to find elements using XPath', async()=>{
+    it('should be able to find elements using XPath', async()=>{
         //Navigate to Alert Dialogs
         await $('~App').click()
 
@@ -35,5 +35,22 @@ describe('Find elements on Android app', ()=>{
 
         // Verify the final text
         await expect(await $('//*[@resource-id="android:id/message"]')).toHaveText('You selected: 0 , Command one')
+    })
+
+    it('should be able to find elements using UIAutomator functions', async()=>{
+        // Navigate to Alert Dialog
+        await $('~App').click()
+
+        // Click on Alert Dialogs using UIAutomator
+        await $('android=new UiSelector().textContains("Alert")').click()
+
+        // Click on List Dialog using UIAutomator
+        await $('android=new UiSelector().resourceId("io.appium.android.apis:id/select_button")').click()
+
+        // Click on Command two using UIAutomator
+        await $('android=new UiSelector().text("Command two")').click()
+
+        // Assertion on final text using UIAutomator
+        await expect(await $('android=new UiSelector().text("You selected: 1 , Command two")')).toBeExisting()
     })
 })
