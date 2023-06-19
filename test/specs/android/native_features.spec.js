@@ -70,7 +70,7 @@ describe('Android Native features Tests', () =>{
         await $('android=new UiScrollable(new UiSelector().scrollable(true)).setAsHorizontalList().scrollBackward(2)')
     })
 
-    it.only('scrolling exercise', async ()=>{
+    it('scrolling exercise', async ()=>{
         // Open a scrollable activity directly
         await driver.startActivity("io.appium.android.apis","io.appium.android.apis.view.DateWidgets1")
 
