@@ -4,9 +4,7 @@
   "description": "Mobile Automation",
   "main": "index.js",
   "scripts": {
-    "wdio": "wdio run ./wdio.conf.js",
-    "wdio_app": "wdio run ./app.wdio.conf.js",
-    "wdio_ios": "wdio run ./ios.wdio.conf.js"
+    "wdio": "wdio run config/wdio.shared.conf.js"
   },
   "repository": {
     "type": "git",
