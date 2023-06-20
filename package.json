@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "wdio": "wdio run ./wdio.conf.js",
-    "wdio_app": "wdio run ./app.wdio.conf.js"
+    "wdio_app": "wdio run ./app.wdio.conf.js",
+    "wdio_ios": "wdio run ./ios.wdio.conf.js"
   },
   "repository": {
     "type": "git",
@@ -23,7 +24,7 @@
   "homepage": "https://github.com/gagankeshav/mobileAutomation/tree/android-find-elements#readme",
   "dependencies": {
     "@wdio/cli": "^8.11.2",
-    "appium": "^2.0.0-rc.3",
+    "appium": "^2.0.0-rc.2",
     "appium-doctor": "^1.16.2"
   },
   "devDependencies": {
@@ -33,6 +34,7 @@
     "@wdio/mocha-framework": "^8.11.0",
     "@wdio/spec-reporter": "^8.11.2",
     "appium-uiautomator2-driver": "^2.26.2",
+    "appium-xcuitest-driver": "^4.32.5",
     "ts-node": "^10.9.1",
     "typescript": "^4.9.5"
   }
