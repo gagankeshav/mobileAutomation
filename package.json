@@ -1,6 +1,6 @@
 {
   "name": "mobileautomation",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Mobile Automation",
   "main": "index.js",
   "scripts": {
