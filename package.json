@@ -1,11 +1,11 @@
 {
   "name": "mobileautomation",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Mobile Automation",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "wdio": "wdio run ./wdio.conf.js"
+    "wdio": "wdio run ./wdio.conf.js",
+    "wdio_app": "wdio run ./app.wdio.conf.js"
   },
   "repository": {
     "type": "git",
