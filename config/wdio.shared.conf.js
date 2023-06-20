@@ -7,8 +7,6 @@ exports.config = {
     // ====================
     // WebdriverIO supports running e2e tests as well as unit and component tests.
     runner: 'local',
-
-    port: 4723,
     //
     // ==================
     // Specify Test Files
@@ -25,9 +23,6 @@ exports.config = {
     // then the current working directory is where your `package.json` resides, so `wdio`
     // will be called from there.
     //
-    specs: [
-        "./test/specs/ios/todo*.js"
-    ],
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
@@ -54,13 +49,6 @@ exports.config = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://saucelabs.com/platform/platform-configurator
     //
-    capabilities: [{
-        'appium:platformName': 'ios',
-        'appium:platformVersion': '16.4',
-        'appium:deviceName': 'iPhone 14 Pro',
-        'appium:automationName': 'XCUITest',
-        'appium:app': path.join(process.cwd(), 'app/ios/MVCTodo.app'),
-    }],
     //
     // ===================
     // Test Configurations
@@ -109,7 +97,7 @@ exports.config = {
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
     services: ['appium'],
-
+    
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: https://webdriver.io/docs/frameworks
@@ -132,7 +120,7 @@ exports.config = {
     // see also: https://webdriver.io/docs/dot-reporter
     reporters: ['spec',['allure', {outputDir: 'allure-results'}]],
 
-
+    
     //
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
@@ -284,10 +272,10 @@ exports.config = {
     // onComplete: function(exitCode, config, capabilities, results) {
     // },
     /**
-     * Gets executed when a refresh happens.
-     * @param {string} oldSessionId session ID of the old session
-     * @param {string} newSessionId session ID of the new session
-     */
+    * Gets executed when a refresh happens.
+    * @param {string} oldSessionId session ID of the old session
+    * @param {string} newSessionId session ID of the new session
+    */
     // onReload: function(oldSessionId, newSessionId) {
     // }
 }
